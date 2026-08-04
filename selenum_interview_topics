@@ -14,5 +14,7 @@
 -WebdriverWait and driver and handling of browser manager.
 -Architecture of Selenium
 -Custom JavaScript Execution (driver.execute_script)
+-Web Table Handling, Sorting,Pagination,Filters etc.
+
 
 
