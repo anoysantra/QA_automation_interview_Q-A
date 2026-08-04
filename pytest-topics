@@ -2,11 +2,13 @@
 -Parametarization of Datas in Test Cases.
 -use of conftest.py
 -why pytest.ini is written
--Custom CLI Options (pytest_addoption)
+-Custom CLI Options (pytest_addoption) [ parser.addoption("--env", action="store", default="qa", help="Environment: qa, staging, or prod")]
 -Soft Assertions (pytest-check)
 -difference between @pytest.mark.parametrize and Fixture Parametrization(@pytest.fixture(params=["chrome", "firefox", "edge"])
 -pytest.mark(for regression,smoke etc)
 -pytest report making
+- request fixture used in pytest. why
+-other imp inbuilt functions of pytest widely used the common ones till the intermediate level.
 
 
 
