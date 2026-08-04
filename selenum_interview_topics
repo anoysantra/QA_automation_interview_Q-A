@@ -19,6 +19,9 @@
 -Headless Browser Configuration & Window Sizing
 -Page Load Strategies (DesiredCapabilities / Options)[Just read the concept]
 -API Interception, Route Aborting, & Native Storage State Cache
+-Implicit vs Explicit vs Fluent Wait — interviewers always ask the difference between all three. You have explicit covered but the comparison question will come
+-How to handle dynamic XPath — contains(), starts-with(), following-sibling etc. Very common question
+
 
 
 
