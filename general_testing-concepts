@@ -70,5 +70,30 @@ When building an application, software is tested progressively from small pieces
 | *Smoke* | Is the application stable enough for us to even bother testing it? |
 | *Sanity* | Did the developer actually fix the specific bug they claimed to fix? |
 | *Regression* | Did the new code changes or bug fixes accidentally break old, working features? |
+
+
+- Pritority
+├── High Severity / Low Priority
+│   └── Example: The application crashes completely, but ONLY when a user inputs a 50-character 
+│       special alphanumeric string into an obscure, legacy settings field that 0.01% of users visit.
+│       (Massive technical crash, but zero immediate business impact).
+│
+└── Low Severity / High Priority
+    └── Example: The company's logo on the main public login page is completely misspelled, 
+
+- 
+        blurry, or flipped upside down. 
+        (Zero technical impact on code execution, but ruins company branding and trust immediately)
 | *Load* | How does the system handle normal, expected everyday user traffic? |
 | *Stress* | What happens to the system when we push it past its limits until it breaks? |
+
+
+- Black-Box Testing: Testing the system purely from the outside via the UI or API without knowing or seeing the internal code structure. (This is where most QA engineers operate).
+- White-Box Testing: Testing the application with full visibility into the internal code, logic paths, loops, and statement branches. (e.g., Code coverage metrics, Unit testing)
+- Gray-Box Testing: A hybrid approach. You test from the outside like a black-box tester, but you use structural knowledge of the internal code or databases to design sharper, 
+high-risk test cases (e.g., viewing log tables or API payloads while navigating the UI).
+
+-Exploratory Testing : Simultaneous learning, test design, and test execution. 
+Instead of following rigid, pre-written step-by-step test scripts, you actively explore the application like a real, unpredictable user to hunt for unscripted edge cases.
+
+- Agile/Scrum/JIRA - get to know this topics.
