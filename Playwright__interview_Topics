@@ -1,1 +1,20 @@
 #playwright interview qsts/topics/notes
+-Handling UI elements like alerts, iframes, uploads, downloads,date-picker,select-dropdown,alerts,multiple tabs,new window,screenshots(all other UI handling lists)
+-Synchronization and flaky test handling(explicit waits all the inbuilt functions)
+-Playwright + Pytest framework design(fixtures,conftest.py for UI and API login bypass and other configs,parametarization,tagging-smokes/regression)
+-Page Object Model best practices (POM features)
+-Advanced topics like network mocking(imp), storage state(imp for authentication), SPA testing(pending to study)
+-Test data management & environment configuration
+-API testing
+-except and assertions
+-Reports Making, Parallel Testing
+-Browser and Context Management
+-Playwright Architecture and Edge over other Frameworks
+-Explain different types of selectors supported by Playwright.
+-page.evaluate(...)
+-Explain HOOKS in Playwright
+-How do you pass query parameters in Playwright API Testing
+-handling New browsers,tabs and other windows and dialogs.
+-Handling Complex Xpath and CSS_Selector locators. hands on demo
+-Pytest Decorators
+
