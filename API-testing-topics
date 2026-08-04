@@ -5,4 +5,11 @@
 - requests library in python
 - Read about how browser handles sessions,cookies and JWT tokens or tokens and how they are used for login in test cases.
 - Headers (authorization and authentication) and how are headers passed in APIs and their uses[Bearer <token> the use]
+- Schema validation — jsonschema library, validating the structure of a response
+- What is an API?
+- Response body validation
+- Negative API testing — What happens when you send wrong data, missing headers, wrong auth?
+- Rate limiting — What is 429 status code?
+- Postman basics
+- 
 
