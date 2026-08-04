@@ -6,4 +6,8 @@
 -Asserts statements
 -UI and API bypass login using conftest.py and requests library(python)
 -Expected Conditions and all different inbuilt functions
--
+-collaborating with pytest paramerization,marking,imp decorators.
+-reports generating
+-logging
+-screenshots
+
