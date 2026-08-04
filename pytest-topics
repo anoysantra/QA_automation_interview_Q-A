@@ -1,1 +1,12 @@
+-Explanation of the pytest framework and its uses and why widely used and its whole complete working architecture.
+-Parametarization of Datas in Test Cases.
+-use of conftest.py
+-why pytest.ini is written
+-Custom CLI Options (pytest_addoption)
+-Soft Assertions (pytest-check)
+-difference between @pytest.mark.parametrize and Fixture Parametrization(@pytest.fixture(params=["chrome", "firefox", "edge"])
+-pytest.mark(for regression,smoke etc)
+-pytest report making
+
+
 
