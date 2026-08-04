@@ -13,6 +13,8 @@
 -read the basics of unittest(although I did no hand-on this read about it in general) and how pytest is diff from it.
 -Key Command-Line Execution Flags and commands to run the test-cases
 -Scopes in Pytest and its uses.
+-yield in fixtures — you likely use it but make sure you can explain why yield is used instead of return in fixtures (it's the teardown hook)
+-pytest-xdist for parallel execution — know the basic command (-n auto)
 
 
 
