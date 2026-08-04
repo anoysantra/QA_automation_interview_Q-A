@@ -1,1 +1,8 @@
+- What is the difference between json=payload and data=payload parameters in the Python requests library?
+- How do you pass dynamic Query Parameters and Headers inside an API test
+- How do you handle a chained API test where the output of API #1 is required for API #2?
+- API requests and methods and status codes.(GET,POST,PUT,PATCH,DELETE)
+- requests library in python
+- Read about how browser handles sessions,cookies and JWT tokens or tokens and how they are used for login in test cases.
+- Headers (authorization and authentication) and how are headers passed in APIs and their uses[Bearer <token> the use]
 
