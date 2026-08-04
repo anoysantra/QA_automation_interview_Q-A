@@ -12,6 +12,7 @@
 -Setup , Call and Teardown
 -read the basics of unittest(although I did no hand-on this read about it in general) and how pytest is diff from it.
 -Key Command-Line Execution Flags and commands to run the test-cases
+-Scopes in Pytest and its uses.
 
 
 
