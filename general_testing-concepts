@@ -97,3 +97,7 @@ high-risk test cases (e.g., viewing log tables or API payloads while navigating 
 Instead of following rigid, pre-written step-by-step test scripts, you actively explore the application like a real, unpredictable user to hunt for unscripted edge cases.
 
 - Agile/Scrum/JIRA - get to know this topics.
+
+- Test case design techniques — Boundary Value Analysis (BVA), Equivalence Partitioning, Decision Table. These come up in almost every manual+automation interview
+- Defect life cycle / Bug life cycle — New → Assigned → Open → Fixed → Retest → Closed. Interviewers always ask this
+- Test plan vs Test case vs Test scenario — 3 different things, interviewers ask to differentiate
