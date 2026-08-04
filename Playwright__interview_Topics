@@ -20,5 +20,5 @@
 -Locator Filtering vs. Chaining
 -How to handle playwright for visible,auto-waiting and other complex UI components(click,fill,the explicit waits etc)
 -why pytest.ini is written
-
+-Playwright vs Selenium comparison
 
