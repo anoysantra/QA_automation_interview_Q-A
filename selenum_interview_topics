@@ -1,1 +1,9 @@
-
+-Locators Strategy for CSS_SELECTORS,XPATH,ID etc.
+-Handling UI components(Drop Downs,Select options,New Tab,windows,Modal,Dialogs,File Upload & Download,Alerts etc)
+-Handling Explicit Waits (wait for URL,UI compoents, Wait for components to be visible, and all other inbuilt functions)
+-Designing the POM and using classes and OOPS how to design the locators.
+-API testing using python requests library
+-Asserts statements
+-UI and API bypass login using conftest.py and requests library(python)
+-Expected Conditions and all different inbuilt functions
+-
