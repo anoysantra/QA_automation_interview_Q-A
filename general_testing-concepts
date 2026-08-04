@@ -1,0 +1,74 @@
+In software testing, the easiest way to understand the massive list of testing types is to divide them into two primary categories: *Functional Testing* (testing what the system does) and *Non-Functional Testing* (testing how the system behaves under different conditions).
+
+Here is a detailed breakdown of all the essential testing types every QA professional needs to know.
+
+---
+
+## 1. The Core Performance Testing Types (Load & Stress)
+
+You asked specifically about Load and Stress. These fall under *Non-Functional Testing*. To understand them, imagine a physical bridge designed for vehicles.
+
+### Load Testing
+
+* *What it is:* Testing how the application handles its expected, everyday volume of traffic.
+* *The Bridge Metaphor:* If a bridge is built to hold a maximum of 100 cars at a time, Load Testing is putting 80 to 90 cars on it to make sure it doesn't shake, slow down traffic, or sag.
+* *Software Example:* Running a script that simulates 5,000 users logging into an e-commerce site at the same time because that is the typical peak traffic for a normal Tuesday. You measure if pages load under 2 seconds.
+
+### Stress Testing
+
+* *What it is:* Pushing the application way past its intended limit until it breaks, just to see how it fails and how it recovers.
+* *The Bridge Metaphor:* Forcing 500 massive cargo trucks onto that same 100-car bridge until it cracks. You want to see: Does it collapse instantly, or does it give warning signs?
+* *Software Example:* Simulating 50,000 simultaneous users on a system designed for 5,000. You want to see if the website displays a clean "Server is busy" page, or if the entire database crashes and loses data.
+
+### Other Performance Variants
+
+* *Spike Testing:* Flooding the system with an instant, massive wave of traffic to see how it reacts (e.g., Ticketmaster when concert tickets go live).
+* *Soak / Endurance Testing:* Putting a steady, normal load on the system for a very long time (e.g., 24 to 48 hours) to look for memory leaks or performance degradation over time.
+
+---
+
+## 2. Change-Related Testing (Regression, Smoke, Sanity)
+
+Whenever developers modify or update code, QA must run specific tests to ensure nothing was damaged.
+
+### Regression Testing
+
+* *What it is:* Testing the entire existing application after a code change to ensure that new features or bug fixes didn't accidentally break old features that were previously working.
+* *Real-world Example:* A developer updates the "Change Password" feature. You run *Regression Testing* on the "Add to Cart" and "Checkout" features to make sure the developer's changes didn't accidentally break the shopping system. This is why automation tools like Playwright or Selenium are heavily used—running these tests manually every time code changes is exhausting.
+
+### Smoke Testing
+
+* *What it is:* A quick, basic suite of tests run immediately after a new software build is deployed. It checks if the most critical, core functionalities work. If the smoke test fails, the build is rejected.
+* *Origin:* The term comes from hardware engineering—plugging a device in to see if "smoke" comes out of it. If it smokes, turn it off.
+* *Software Example:* Checking if the app launches, if a user can log in, and if the main homepage loads. If you can't log in, there's no point in running any other detailed tests.
+
+### Sanity Testing
+
+* *What it is:* A quick, highly targeted test executed after receiving a software build with a minor bug fix. It proves that the specific feature works and the bug is actually gone.
+* *Difference from Smoke:* Smoke testing is broad but shallow (testing the whole app's health). Sanity testing is narrow but deep (focusing strictly on the component that was just fixed).
+
+---
+
+## 3. The Functional Hierarchy (The Testing Levels)
+
+When building an application, software is tested progressively from small pieces up to the entire completed system.
+
+* *Unit Testing:* Testing the smallest individual piece of code in isolation (like a single Python function). This is usually written and executed by developers.
+* *Integration Testing:* Testing how two or more individual pieces or modules interact with each other (e.g., making sure your requests API code can successfully write data to a SQL database module).
+* *System Testing:* Testing the entire, fully integrated application from end-to-end to ensure it matches the business requirements (this is where QA teams spend most of their time).
+* *User Acceptance Testing (UAT):* The final phase before release. Real users or clients test the application to ensure it handles actual business tasks to their satisfaction before signing off.
+
+---
+
+## Quick Reference Summary
+
+| Testing Type | Core Question It Answers |
+| --- | --- |
+| *Unit* | Does this individual function or line of code work correctly? |
+| *Integration* | Do these two separate modules talk to each other without errors? |
+| *System* | Does the entire application work together from a user's perspective? |
+| *Smoke* | Is the application stable enough for us to even bother testing it? |
+| *Sanity* | Did the developer actually fix the specific bug they claimed to fix? |
+| *Regression* | Did the new code changes or bug fixes accidentally break old, working features? |
+| *Load* | How does the system handle normal, expected everyday user traffic? |
+| *Stress* | What happens to the system when we push it past its limits until it breaks? |
