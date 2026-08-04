@@ -16,5 +16,8 @@
 -How do you pass query parameters in Playwright API Testing
 -handling New browsers,tabs and other windows and dialogs.
 -Handling Complex Xpath and CSS_Selector locators. hands on demo
--Pytest Decorators
+-Pytest Decorator
+-Locator Filtering vs. Chaining
+-How to handle playwright for visible,auto-waiting and other complex UI components(click,fill,the explicit waits etc)
+
 
