@@ -1,5 +1,5 @@
 -Locators Strategy for CSS_SELECTORS,XPATH,ID etc.
--Handling UI components(Drop Downs,Select options,New Tab,windows,Modal,Dialogs,File Upload & Download,Alerts etc)
+-Handling UI components(Drop Downs,Select options,New Tab,windows,Modal,Dialogs,File Upload & Download,Alerts,hovering,drag and drop etc)
 -Handling Explicit Waits (wait for URL,UI compoents, Wait for components to be visible, and all other inbuilt functions)
 -Designing the POM and using classes and OOPS how to design the locators.
 -API testing using python requests library
@@ -10,4 +10,9 @@
 -reports generating
 -logging
 -screenshots
+-Important Exceptions in Selenium and what they means.(stale element)
+-WebdriverWait and driver and handling of browser manager.
+-Architecture of Selenium
+-Custom JavaScript Execution (driver.execute_script)
+
 
