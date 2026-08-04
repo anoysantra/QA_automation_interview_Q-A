@@ -7,8 +7,9 @@
 -difference between @pytest.mark.parametrize and Fixture Parametrization(@pytest.fixture(params=["chrome", "firefox", "edge"])
 -pytest.mark(for regression,smoke etc)
 -pytest report making
-- request fixture used in pytest. why
--other imp inbuilt functions of pytest widely used the common ones till the intermediate level.
+-"request" fixture used in pytest. why(and its inbuilt : request.param,request.node,request.addfinalizer)
+-other imp inbuilt functions of pytest widely used the common ones till the intermediate level.(pytest.skip,pytest.fail)
+-Setup , Call and Teardown
 
 
 
