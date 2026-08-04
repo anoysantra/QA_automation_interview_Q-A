@@ -76,5 +76,8 @@ WHERE email LIKE 'test_%@automation-runner.com'
 
 -Normalization in DB(very imp)
 -Pillar A: ACID Properties(know the basics and what is it)
+- WHERE vs HAVING — know the one-line difference (WHERE filters rows before grouping, HAVING filters after)
+- TRUNCATE vs DELETE vs DROP — very common interview question
+- Indexes — what is a database index and why does it matter for QA? (just concept level)
 
 
