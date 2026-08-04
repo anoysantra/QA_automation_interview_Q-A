@@ -1,1 +1,13 @@
 
+The file is completely empty. Since you said you know the intro and basics, here's exactly what to add and study:
+
+Must know for junior level:
+
+What is CI/CD and why it matters for QA (just conceptually)
+What is a pipeline? What triggers it?
+How do your tests fit into a CI pipeline? (on every commit → tests run automatically)
+GitHub Actions basics — what is a .yml workflow file?
+What is Jenkins? What is a Jenkinsfile?
+What does it mean when a build "fails" vs "passes" in CI?
+
+You don't need to build Jenkins from scratch. Just be able to say: "In my projects I've used GitHub Actions to trigger my PyTest suite automatically on every push to the main branch."
