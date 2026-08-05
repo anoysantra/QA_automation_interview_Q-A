@@ -486,3 +486,75 @@ A QA engineer uses Postman to test a new `/register` API and verify the expected
 ### Key points to remember
 - Postman is good for manual exploration and debugging.
 - Automation frameworks like `requests` or Playwright are used when you need repeatable test execution.
+
+---
+
+## Follow-up Question 1: What is the difference between UI testing and API testing?
+
+### Definition
+UI testing validates the visible user interface, while API testing validates the backend communication between applications.
+
+### Technical explanation
+UI tests interact with buttons, forms, and pages. API tests interact with endpoints, request methods, and response payloads.
+
+### Why it is used
+UI tests confirm user experience, while API tests confirm system logic and backend correctness.
+
+### Real-world example
+A UI test may verify that a login button works. An API test may verify that the login endpoint returns a valid token.
+
+### Common follow-up questions
+- Which one is faster to automate?
+- Which one is more stable for regression testing?
+
+### Key points to remember
+- UI testing checks what the user sees.
+- API testing checks what the application sends and receives.
+
+---
+
+## Follow-up Question 2: Why is checking the status code important in API automation?
+
+### Definition
+A status code tells you whether an API request succeeded, failed, or needs additional action.
+
+### Technical explanation
+Automation should not only verify that a response came back, but also that the response belongs to the expected outcome.
+
+### Why it is used
+It helps quickly identify whether the request passed or failed and whether the problem is on the client or server side.
+
+### Real-world example
+A `200` response for a user profile request is expected, while a `401` response means the user is not authorized.
+
+### Common follow-up questions
+- What is the difference between `4xx` and `5xx` statuses?
+- Can a test be considered successful even if the body is wrong?
+
+### Key points to remember
+- Status code is the first layer of API validation.
+- It gives immediate insight into the result of the request.
+
+---
+
+## Follow-up Question 3: Why do we use authentication headers in API testing?
+
+### Definition
+Authentication headers provide proof that the client is allowed to access a protected resource.
+
+### Technical explanation
+Headers such as `Authorization: Bearer <token>` are commonly added to requests to identify the user or service making the call.
+
+### Why it is used
+They protect endpoints and help verify that the caller is legitimate.
+
+### Real-world example
+A test may send a bearer token to access a profile endpoint that should only work for logged-in users.
+
+### Common follow-up questions
+- What happens when the token is invalid?
+- Why is it important to avoid hardcoding secrets in code?
+
+### Key points to remember
+- Headers carry metadata and authentication data.
+- Use secure and environment-safe token handling in automation.

@@ -456,3 +456,75 @@ Pytest is often preferred for beginner-friendly test automation and modern QA pr
 ### Key points to remember
 - Pytest is simpler to start with.
 - `unittest` is more traditional but more verbose.
+
+---
+
+## Follow-up Question 1: What is the benefit of using fixtures in Pytest?
+
+### Definition
+A fixture is a reusable setup object used by tests.
+
+### Technical explanation
+Fixtures provide the test environment by preparing resources such as browser instances, test data, or database connections.
+
+### Why it is used
+They avoid duplicate setup logic and keep tests clean and maintainable.
+
+### Real-world example
+A fixture can create a browser context for UI tests and tear it down after the test finishes.
+
+### Common follow-up questions
+- Why is fixture reuse helpful across many tests?
+- How is a fixture different from a normal function?
+
+### Key points to remember
+- Fixtures centralize setup and cleanup.
+- They are one of the most important Pytest concepts.
+
+---
+
+## Follow-up Question 2: Why is `pytest -q` commonly used?
+
+### Definition
+`pytest -q` runs tests in a quiet mode with concise output.
+
+### Technical explanation
+It reduces noise and gives quick test summaries, which is useful in local runs and CI logs.
+
+### Why it is used
+It improves readability and speeds up feedback during development.
+
+### Real-world example
+A tester runs `pytest -q` before pushing code to confirm the key tests pass.
+
+### Common follow-up questions
+- What does `-k` do in Pytest?
+- Why are markers important in CI runs?
+
+### Key points to remember
+- `pytest -q` is a simple command for quick verification.
+- It is commonly used in interviews and day-to-day automation work.
+
+---
+
+## Follow-up Question 3: Why do we use test markers like `smoke` and `regression`?
+
+### Definition
+Pytest markers label tests so they can be grouped and executed selectively.
+
+### Technical explanation
+Markers such as `smoke` or `regression` help teams control which suite runs in different stages of delivery.
+
+### Why it is used
+They make automation more organized and help optimize CI speed.
+
+### Real-world example
+A CI pipeline may run only smoke tests on every commit, while full regression tests run nightly.
+
+### Common follow-up questions
+- How do markers help with CI performance?
+- Why register markers in `pytest.ini`?
+
+### Key points to remember
+- Markers improve organization and execution control.
+- They are useful in both local and pipeline test runs.

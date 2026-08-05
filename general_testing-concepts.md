@@ -350,6 +350,78 @@ If a field accepts ages between 18 and 65, BVA may test 17, 18, 64, 65, and 66.
 
 ---
 
+## Follow-up Question 1: What is the difference between a test case and a test scenario?
+
+### Definition
+A test scenario is a high-level situation to be tested, while a test case is the detailed step-by-step procedure for validating it.
+
+### Technical explanation
+A scenario explains what needs to be checked, while a test case explains how to check it.
+
+### Why it is used
+They help organize testing from business-level intent to execution detail.
+
+### Real-world example
+Scenario: “User can log in with valid credentials.” Test case: enter valid username and password, click login, verify the dashboard opens.
+
+### Common follow-up questions
+- Which is more detailed?
+- Which one is created first?
+
+### Key points to remember
+- Scenario = goal
+- Test case = procedure
+
+---
+
+## Follow-up Question 2: Why is defect reporting important in QA?
+
+### Definition
+Defect reporting captures a bug in a structured way so it can be fixed and tracked properly.
+
+### Technical explanation
+A good defect report should include steps, expected result, actual result, severity, and environment details.
+
+### Why it is used
+It ensures the development team understands the issue and can reproduce it quickly.
+
+### Real-world example
+A bug report may state that the password reset form throws a `500` error on a specific browser version.
+
+### Common follow-up questions
+- What makes a bug report high quality?
+- Why should testers include screenshots or logs?
+
+### Key points to remember
+- Clear bug reports reduce confusion and speed up fixes.
+- Good reporting is a key QA skill.
+
+---
+
+## Follow-up Question 3: What is the role of QA in Agile teams?
+
+### Definition
+QA in Agile teams works closely with developers and product owners to validate changes quickly throughout the sprint.
+
+### Technical explanation
+QA participates in planning, shares feedback early, runs regression tests, and supports fast delivery.
+
+### Why it is used
+It helps the team release small improvements safely and frequently.
+
+### Real-world example
+A QA engineer validates a story during the sprint, reports bugs early, and helps the team finish the feature on time.
+
+### Common follow-up questions
+- Why is fast feedback important in Agile?
+- How does QA contribute to sprint goals?
+
+### Key points to remember
+- QA is not only at the end of the cycle.
+- In Agile, testing happens continuously.
+
+---
+
 ## 15) What is Agile, Scrum, and JIRA?
 
 ### Definition

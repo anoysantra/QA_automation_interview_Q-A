@@ -444,3 +444,75 @@ A company with a long Selenium-based codebase might continue using Selenium, whi
 ### Key points to remember
 - Selenium is stable and mainstream.
 - Playwright often provides a smoother modern test automation experience.
+
+---
+
+## Follow-up Question 1: Why are explicit waits preferred over `sleep()` in Selenium?
+
+### Definition
+An explicit wait pauses execution until a specific condition is satisfied instead of waiting a fixed amount of time.
+
+### Technical explanation
+`sleep()` blindly waits, while explicit waits react to the actual state of the application, which makes tests more reliable.
+
+### Why it is used
+It reduces flaky tests and makes scripts more stable in dynamic UI conditions.
+
+### Real-world example
+A page loads an element after a few seconds; explicit wait checks until the element is clickable instead of just sleeping for 5 seconds.
+
+### Common follow-up questions
+- Why is fixed waiting not recommended?
+- What is the difference between implicit and explicit wait?
+
+### Key points to remember
+- Prefer explicit waits for dynamic UI behavior.
+- `sleep()` is usually considered a less reliable approach.
+
+---
+
+## Follow-up Question 2: What is a stale element exception?
+
+### Definition
+A stale element exception occurs when a web element is no longer attached to the page DOM.
+
+### Technical explanation
+This often happens when the page refreshes or rerenders the UI after an action.
+
+### Why it is used
+It helps explain a common Selenium test failure and the need for synchronization.
+
+### Real-world example
+A button is found, but the page refreshes before clicking it, and the reference becomes stale.
+
+### Common follow-up questions
+- How can this be avoided?
+- Why is re-finding the element often the fix?
+
+### Key points to remember
+- Stale element = element reference is outdated.
+- Re-locating the element is a common solution.
+
+---
+
+## Follow-up Question 3: What is the difference between CSS selectors and XPath?
+
+### Definition
+Both are locator strategies used to identify elements in the DOM, but they have different syntax and use cases.
+
+### Technical explanation
+CSS selectors are generally simpler and faster for many common cases, while XPath is more flexible for complex traversal and dynamic conditions.
+
+### Why it is used
+They allow testers to target elements in different ways depending on the page structure.
+
+### Real-world example
+An XPath can locate a button by text or sibling relationship, while CSS can target a class or ID directly.
+
+### Common follow-up questions
+- Which is more readable for beginners?
+- Which one is better for dynamic pages?
+
+### Key points to remember
+- CSS is usually shorter and simpler.
+- XPath is more powerful for complex element paths.

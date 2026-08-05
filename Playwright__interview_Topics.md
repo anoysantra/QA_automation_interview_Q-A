@@ -400,3 +400,75 @@ A CI job runs smoke tests in parallel, then publishes results to a report file f
 ### Key points to remember
 - Reporting helps teams understand failures quickly.
 - Parallelization improves speed but requires isolated tests.
+
+---
+
+## Follow-up Question 1: Why is Playwright considered more reliable for modern web automation?
+
+### Definition
+Playwright is considered reliable because it reduces many timing and synchronization issues common in UI automation.
+
+### Technical explanation
+Its built-in waiting and locator strategy help tests interact with elements only when they are ready, which reduces flaky behavior.
+
+### Why it is used
+It helps teams create robust browser automation faster.
+
+### Real-world example
+A button appears only after page rendering; Playwright waits automatically and then clicks it.
+
+### Common follow-up questions
+- What makes Playwright better than raw Selenium scripts?
+- Why is auto-waiting useful in interviews?
+
+### Key points to remember
+- Playwright provides stable browser automation out of the box.
+- It is especially helpful for dynamic UI flows.
+
+---
+
+## Follow-up Question 2: What is the role of `get_by_role()` in Playwright?
+
+### Definition
+`get_by_role()` locates an element by its accessible role, such as button, link, or textbox.
+
+### Technical explanation
+This selector is aligned with accessibility best practices and typically makes tests more readable and less fragile.
+
+### Why it is used
+It enables tests to target UI elements in a user-oriented way.
+
+### Real-world example
+A tester can locate a login button using `page.get_by_role("button", name="Login")`.
+
+### Common follow-up questions
+- Why is role-based selection recommended?
+- How is it different from CSS selectors?
+
+### Key points to remember
+- Role-based selectors are user-focused and maintainable.
+- They are a strong choice for accessibility-aware automation.
+
+---
+
+## Follow-up Question 3: Why is `storage_state` useful in Playwright automation?
+
+### Definition
+`storage_state` stores browser authentication data so tests can reuse a logged-in session.
+
+### Technical explanation
+This avoids repeated login in every test and improves speed and consistency for authentication-heavy workflows.
+
+### Why it is used
+It helps reduce test execution time and makes authenticated UI tests easier to maintain.
+
+### Real-world example
+A suite stores a login session once and then reuses it to test account settings pages.
+
+### Common follow-up questions
+- Why is login reuse helpful in CI?
+- Does storing auth state create security concerns?
+
+### Key points to remember
+- `storage_state` helps reuse authenticated sessions.
+- It should be handled carefully in secure test environments.

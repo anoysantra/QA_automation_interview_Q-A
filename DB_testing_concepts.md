@@ -360,3 +360,76 @@ An index on `email` allows faster queries for account lookup.
 ### Key points to remember
 - Indexes improve read performance.
 - Too many indexes can slow down writes and increase storage needs.
+
+---
+
+## Follow-up Question 1: Why is database testing important for QA?
+
+### Definition
+Database testing verifies that the application stores, retrieves, and manages data correctly.
+
+### Technical explanation
+This includes checking whether the UI action is reflected in the database and whether the data is consistent and valid.
+
+### Why it is used
+It ensures that the application is not just visually correct, but also data-correct.
+
+### Real-world example
+After creating a new user in the application, QA checks the database to confirm the user record exists with the correct values.
+
+### Common follow-up questions
+- Can UI testing alone prove data correctness?
+- Which database operations are most commonly checked in automation?
+
+### Key points to remember
+- Data integrity is a core part of software quality.
+- A good QA test may validate both the UI and the database state.
+
+---
+
+## Follow-up Question 2: What is a transaction in a database?
+
+### Definition
+A transaction is a sequence of database operations treated as one unit of work.
+
+### Technical explanation
+A transaction is committed only when all steps succeed, or rolled back if one step fails.
+
+### Why it is used
+This protects data consistency during critical operations.
+
+### Real-world example
+A bank transfer updates both sender and receiver balances as one transaction.
+
+### Common follow-up questions
+- Why are transactions important in QA testing?
+- What happens if a transaction fails halfway through?
+
+### Key points to remember
+- Transactions ensure all-or-nothing behavior.
+- This is closely related to ACID properties.
+
+---
+
+## Follow-up Question 3: What is the difference between a row and a table in SQL?
+
+### Definition
+A table is a collection of related data, and a row is a single record inside that table.
+
+### Technical explanation
+Rows represent individual records, while tables organize those records into a logical structure with columns.
+
+### Why it is used
+This basic model is used in almost every database validation task.
+
+### Real-world example
+A `users` table may contain rows such as one user record per person.
+
+### Common follow-up questions
+- What is a column in SQL?
+- Why is understanding the table structure important in QA?
+
+### Key points to remember
+- Table = structure
+- Row = record
+- Column = field

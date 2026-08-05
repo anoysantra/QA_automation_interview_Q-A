@@ -206,3 +206,75 @@ If the Pytest suite fails due to a login button selector change, the build statu
 - Pass = pipeline completed successfully.
 - Fail = one or more checks did not meet the expected conditions.
 - In QA, the test stage is often the most important signal.
+
+---
+
+## Follow-up Question 1: Why should QA care about CI/CD?
+
+### Definition
+QA should care about CI/CD because it brings automated quality checks directly into the development workflow.
+
+### Technical explanation
+When tests run automatically in the pipeline, defects are found earlier and teams get quicker feedback before release.
+
+### Why it is used
+This reduces manual testing effort and helps release more confidently.
+
+### Real-world example
+A login regression test running in GitHub Actions catches a broken authentication flow before deployment.
+
+### Common follow-up questions
+- What is the role of QA in a CI pipeline?
+- Why is early feedback valuable?
+
+### Key points to remember
+- QA benefits from CI/CD because tests are automated and fast.
+- Faster feedback means fewer surprises closer to release.
+
+---
+
+## Follow-up Question 2: What happens if a CI build fails?
+
+### Definition
+A failed CI build means one or more required steps in the pipeline did not complete successfully.
+
+### Technical explanation
+A build can fail because of code errors, missing dependencies, test failures, or environment problems.
+
+### Why it is used
+It prevents broken code from being treated as ready for deployment.
+
+### Real-world example
+If the test stage fails because a selector changed, the pipeline marks the build as failed and the team investigates.
+
+### Common follow-up questions
+- Is a failed build always a code bug?
+- What is the first thing QA should check after a failed pipeline?
+
+### Key points to remember
+- Build failure is a signal that quality gates were not passed.
+- It is usually a sign to investigate the failing stage first.
+
+---
+
+## Follow-up Question 3: What is the difference between CI and CD?
+
+### Definition
+CI stands for Continuous Integration, while CD stands for Continuous Delivery or Continuous Deployment.
+
+### Technical explanation
+CI focuses on frequently integrating code and running automated checks. CD focuses on delivering or deploying those validated changes automatically.
+
+### Why it is used
+Together they create a powerful workflow for faster and safer software delivery.
+
+### Real-world example
+A project may use CI to run tests on every push and CD to deploy the build to staging after those tests pass.
+
+### Common follow-up questions
+- Which one is more important for QA?
+- Can a team use CI without CD?
+
+### Key points to remember
+- CI is about automated integration and checking.
+- CD is about moving the validated changes along the delivery pipeline.
