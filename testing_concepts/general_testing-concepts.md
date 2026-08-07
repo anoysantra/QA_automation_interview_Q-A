@@ -446,44 +446,124 @@ A team works in 2-week sprints, creates stories in JIRA, and updates their testi
 - QA works closely with Agile teams to provide fast feedback.
 - JIRA is commonly used for tracking requirements and defects.
 
-## 16) What is SPA testing and how is it different in Playwright?
+## 16) What is Boundary Value Analysis (BVA)?
 
 ### Definition
-SPA (Single Page Application) testing means testing an app that loads once and then updates content dynamically via JavaScript, instead of doing full page reloads for every action.
+BVA is a test case design technique that focuses on testing the edges (boundaries) of an input range, since bugs are most likely to occur right at the boundary.
 
 ### Technical explanation
-In a traditional multi-page app, each click triggers a full page reload, so the browser naturally waits for the new page. In an SPA (React, Angular, Vue), the URL or content can change without a reload — the DOM is updated in place by JavaScript. This means traditional "wait for page load" logic isn't reliable, because the page never technically "reloads."
+For any valid range, you test the value just below the minimum, the minimum itself, the maximum itself, and the value just above the maximum.
 
 ### Why it is used
-SPAs are the standard for most modern web apps, so QA engineers need to know how to synchronize tests with dynamic content updates instead of full navigations.
+Developers often make off-by-one mistakes (using `<` instead of `<=`, for example), and those mistakes show up exactly at the boundary — not in the middle of a valid range.
 
 ### Real-world example
-Clicking a "Next" tab in a dashboard doesn't change the URL or reload the page — it just swaps out a section of the DOM via JavaScript. A test that waits for `page.wait_for_load_state("load")` may pass instantly without actually waiting for the new content to render.
-
-### Python code example
-```python
-from playwright.sync_api import sync_playwright, expect
-
-with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True)
-    page = browser.new_page()
-    page.goto("https://example.com/dashboard")
-
-    page.get_by_role("tab", name="Reports").click()
-
-    # Instead of waiting for a full page load, wait for the
-    # specific element that proves the SPA finished updating
-    expect(page.get_by_role("heading", name="Reports")).to_be_visible()
-
-    browser.close()
-```
+If an age field accepts ages 18 to 65, BVA tests: 17 (invalid, just below), 18 (valid, minimum), 65 (valid, maximum), and 66 (invalid, just above).
 
 ### Common follow-up questions
-- Why doesn't `wait_for_load_state("load")` work well for SPAs?
-- How do you know an SPA has "finished" updating if the URL doesn't change?
-- Have you tested a React/Angular/Vue app before?
+- Why not just test the middle of the range?
+- How is BVA different from Equivalence Partitioning?
 
 ### Key points to remember
-- SPAs update the DOM without full page reloads, so URL/navigation-based waits are unreliable.
-- Wait for a specific, meaningful element (a heading, a data row, a loading spinner disappearing) rather than a page-load event.
-- Playwright's auto-waiting on locators is especially valuable here, since it waits for the *element* to be ready, not the *page*.
+- BVA targets the edges of a range, not the middle.
+- Test min, max, min-1, and max+1 as your core set.
+
+---
+
+## 17) What is Equivalence Partitioning?
+
+### Definition
+Equivalence Partitioning divides input data into groups (partitions) that should behave the same way, so you only need to test one representative value from each group instead of every possible value.
+
+### Technical explanation
+Values within the same partition are expected to produce the same result, so testing one value from a partition is assumed to be as good as testing all of them.
+
+### Why it is used
+It reduces the number of test cases dramatically while still covering all meaningfully different behaviors.
+
+### Real-world example
+For the same age field (18–65 valid), you'd have three partitions: below 18 (invalid), 18–65 (valid), above 65 (invalid). Testing one value from each — say 10, 30, and 80 — covers the logic without testing every number from 1 to 100.
+
+### Common follow-up questions
+- How does this technique pair with BVA?
+- What happens if a partition actually behaves differently at different points (was the partition wrongly grouped)?
+
+### Key points to remember
+- One representative value per partition is enough.
+- BVA and Equivalence Partitioning are almost always used together: partitioning tells you *where* the groups are, BVA tells you *which exact values* to test at their edges.
+
+---
+
+## 18) What is Decision Table Testing?
+
+### Definition
+A decision table is a technique for testing combinations of multiple input conditions that together determine an output — useful when business logic depends on more than one factor at once.
+
+### Technical explanation
+You list every condition as a row, every combination of true/false as a column, and the expected output for each combination as the last row. This ensures you don't miss a combination of rules.
+
+### Why it is used
+Some bugs only appear when two or more conditions interact — a single-condition test won't catch them.
+
+### Real-world example
+A discount rule: "If the customer is a premium member AND the cart total is over ₹2000, apply a 20% discount." A decision table would test all four combinations: (premium, over ₹2000), (premium, under ₹2000), (not premium, over ₹2000), (not premium, under ₹2000) — to confirm the discount only applies in the one intended case.
+
+### Common follow-up questions
+- When would you use a decision table instead of BVA or Equivalence Partitioning?
+- How many test cases does a decision table with 3 conditions typically need?
+
+### Key points to remember
+- Decision tables are for testing rule combinations, not single input ranges.
+- They're especially useful for validating discount rules, eligibility checks, and approval workflows.
+
+---
+
+## 19) What are the levels of software testing (Unit, Integration, System, UAT)?
+
+### Definition
+These are the stages software passes through as it's tested from the smallest piece of code up to the full, real-world-ready application.
+
+### Technical explanation
+- **Unit Testing** → tests a single function or method in isolation. Usually written by developers.
+- **Integration Testing** → tests how two or more modules work together (e.g., does the API code correctly write to the database).
+- **System Testing** → tests the entire, fully integrated application end-to-end. This is where QA usually spends most of its time.
+- **User Acceptance Testing (UAT)** → the final check, often done by real users or the client, to confirm the app is ready for release.
+
+### Why it is used
+Catching issues at the earliest possible level (unit) is cheaper and faster than catching them later (system or UAT).
+
+### Real-world example
+A `calculate_discount()` function gets a unit test. The checkout flow calling that function alongside the payment API gets an integration test. The entire e-commerce site gets a system test. The client trying to place a real order before go-live is UAT.
+
+### Common follow-up questions
+- Which level do QA automation engineers usually focus on?
+- Why is unit testing usually the developer's responsibility, not QA's?
+
+### Key points to remember
+- The levels move from smallest scope (unit) to largest (UAT).
+- Automation QA engineers most commonly work at the integration and system levels.
+
+---
+
+## 20) What is the difference between Severity and Priority?
+
+### Definition
+Severity measures how technically serious a bug is. Priority measures how urgently it needs to be fixed from a business standpoint. They don't always move together.
+
+### Technical explanation
+A bug can be technically severe but low priority, or technically minor but high priority — it depends on business impact, not just code impact.
+
+### Why it is used
+It helps teams decide what to fix first when there isn't time to fix everything at once.
+
+### Real-world example
+- **High Severity, Low Priority**: The app crashes completely, but only when a user enters a 50-character special string into an obscure legacy settings field almost nobody visits.
+- **Low Severity, High Priority**: The company logo on the main login page is misspelled or upside down — zero technical impact, but it damages trust and branding immediately, so it gets fixed first.
+
+### Common follow-up questions
+- Who usually decides severity vs. priority — QA or the product owner?
+- Can a bug be both high severity and high priority?
+
+### Key points to remember
+- Severity = technical impact. Priority = business urgency.
+- The two are independent — a bug's severity doesn't determine its priority.
