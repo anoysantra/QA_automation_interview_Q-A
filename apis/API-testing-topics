@@ -11,5 +11,6 @@
 - Negative API testing — What happens when you send wrong data, missing headers, wrong auth?
 - Rate limiting — What is 429 status code?
 - Postman basics
-- 
+
+
 
