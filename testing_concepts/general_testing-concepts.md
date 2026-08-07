@@ -445,3 +445,45 @@ A team works in 2-week sprints, creates stories in JIRA, and updates their testi
 ### Key points to remember
 - QA works closely with Agile teams to provide fast feedback.
 - JIRA is commonly used for tracking requirements and defects.
+
+## 16) What is SPA testing and how is it different in Playwright?
+
+### Definition
+SPA (Single Page Application) testing means testing an app that loads once and then updates content dynamically via JavaScript, instead of doing full page reloads for every action.
+
+### Technical explanation
+In a traditional multi-page app, each click triggers a full page reload, so the browser naturally waits for the new page. In an SPA (React, Angular, Vue), the URL or content can change without a reload — the DOM is updated in place by JavaScript. This means traditional "wait for page load" logic isn't reliable, because the page never technically "reloads."
+
+### Why it is used
+SPAs are the standard for most modern web apps, so QA engineers need to know how to synchronize tests with dynamic content updates instead of full navigations.
+
+### Real-world example
+Clicking a "Next" tab in a dashboard doesn't change the URL or reload the page — it just swaps out a section of the DOM via JavaScript. A test that waits for `page.wait_for_load_state("load")` may pass instantly without actually waiting for the new content to render.
+
+### Python code example
+```python
+from playwright.sync_api import sync_playwright, expect
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+    page.goto("https://example.com/dashboard")
+
+    page.get_by_role("tab", name="Reports").click()
+
+    # Instead of waiting for a full page load, wait for the
+    # specific element that proves the SPA finished updating
+    expect(page.get_by_role("heading", name="Reports")).to_be_visible()
+
+    browser.close()
+```
+
+### Common follow-up questions
+- Why doesn't `wait_for_load_state("load")` work well for SPAs?
+- How do you know an SPA has "finished" updating if the URL doesn't change?
+- Have you tested a React/Angular/Vue app before?
+
+### Key points to remember
+- SPAs update the DOM without full page reloads, so URL/navigation-based waits are unreliable.
+- Wait for a specific, meaningful element (a heading, a data row, a loading spinner disappearing) rather than a page-load event.
+- Playwright's auto-waiting on locators is especially valuable here, since it waits for the *element* to be ready, not the *page*.
