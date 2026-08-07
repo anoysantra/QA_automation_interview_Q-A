@@ -472,3 +472,40 @@ A suite stores a login session once and then reuses it to test account settings 
 ### Key points to remember
 - `storage_state` helps reuse authenticated sessions.
 - It should be handled carefully in secure test environments.
+
+## 16) What is SPA testing and how is it different in Playwright?
+
+### Definition
+SPA (Single Page Application) testing means testing an app that loads once and then updates content dynamically via JavaScript, instead of doing full page reloads for every action.
+
+### Technical explanation
+In a traditional multi-page app, each click triggers a full page reload, so the browser naturally waits for the new page. In an SPA (React, Angular, Vue), the URL or content can change without a reload — the DOM is updated in place by JavaScript. This means traditional "wait for page load" logic isn't reliable, because the page never technically "reloads."
+
+### Why it is used
+SPAs are the standard for most modern web apps, so QA engineers need to know how to synchronize tests with dynamic content updates instead of full navigations.
+
+### Real-world example
+Clicking a "Next" tab in a dashboard doesn't change the URL or reload the page — it just swaps out a section of the DOM via JavaScript. A test that waits for `page.wait_for_load_state("load")` may pass instantly without actually waiting for the new content to render.
+
+### Python code example
+```python
+from playwright.sync_api import sync_playwright, expect
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+    page.goto("https://example.com/dashboard")
+
+    page.get_by_role("tab", name="Reports").click()
+
+    # Instead of waiting for a full page load, wait for the
+    # specific element that proves the SPA finished updating
+    expect(page.get_by_role("heading", name="Reports")).to_be_visible()
+
+    browser.close()
+```
+
+### Common follow-up questions
+- Why doesn't `wait_for_load_state("load")` work well for SPAs?
+- How do you know an SPA has "finished" updating if the URL doesn't change?
+- Have you tested a React/Angular/Vue app before?
